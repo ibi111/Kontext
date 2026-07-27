@@ -11,10 +11,7 @@ Here is a chunk from this document:
 Write a 1-2 sentence description situating this chunk within the overall
 document, to improve search retrieval. Answer only with the description."""
 
-# openai/gpt-oss-*:free are reasoning models — they spend part of the token
-# budget on internal reasoning before emitting final content. 400 gives
-# more headroom than the 300 that still let one chunk cut off mid-sentence
-# during testing.
+
 ENRICH_MAX_TOKENS = 400
 ENRICH_RETRY_MAX_TOKENS = 700  # used only if the first attempt truncates
 

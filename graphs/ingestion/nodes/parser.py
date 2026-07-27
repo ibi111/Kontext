@@ -1,15 +1,6 @@
 """
 Runs Docling's DocumentConverter, producing a unified DoclingDocument that
 the chunker node consumes directly.
-
-Uses the pypdfium2 backend explicitly rather than Docling's default. The
-default backend has a known, currently-open memory bug (docling-project/
-docling#3671, #3345): its C++ layer accumulates memory across pages instead
-of releasing it, causing std::bad_alloc on image/chart-heavy pages partway
-through large documents — exactly the profile of a financial annual report
-full of infographics and charts. The pypdfium2 backend avoids this
-entirely per the upstream issue thread. First call downloads Docling's
-model weights if not already cached; runs fully local, no API cost.
 """
 
 import logging

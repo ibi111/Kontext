@@ -16,9 +16,6 @@ from docling_core.transforms.serializer.markdown import MarkdownParams, Markdown
 
 from config import EMBEDDING_MODEL
 
-# Explicit wrapper, not a bare model-name string — passing a string hits
-# HybridChunker's deprecated init path and its max_tokens defaulting isn't
-# reliable. 512 matches bge-large-en-v1.5's actual max sequence length.
 tokenizer = HuggingFaceTokenizer(
     tokenizer=AutoTokenizer.from_pretrained(EMBEDDING_MODEL),
     max_tokens=512,
@@ -39,10 +36,6 @@ chunker = HybridChunker(
     serializer_provider=MarkdownTableSerializerProvider(),
 )
 
-# Docling emits a bare placeholder for images it doesn't extract text from.
-# A chunk that's just this placeholder (or near-empty after stripping) has
-# zero retrieval value — filter it out before it ever reaches enrichment
-# or indexing, rather than spending an LLM call and an embedding on noise.
 JUNK_CHUNK_MIN_CHARS = 20
 IMAGE_PLACEHOLDER = "<!-- image -->"
 

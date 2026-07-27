@@ -13,11 +13,7 @@ class IngestionState(TypedDict, total=False):
     file_path: str
     document_id: int
     validated: bool
-    docling_document: Any          # DoclingDocument, not JSON-serializable —
-                                    # fine for a single in-memory invoke(),
-                                    # would need handling if a checkpointer
-                                    # (e.g. Postgres-backed persistence) is
-                                    # added later.
+    docling_document: Any
     doc_markdown_preview: str
     chunks: list
     chunks_dropped_as_junk: int
