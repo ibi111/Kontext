@@ -39,6 +39,6 @@ class EmbeddingModel:
         return self.embed(texts)
 
 
-# Singleton — load once at startup
+# Singleton
 embedding_model = EmbeddingModel()
 

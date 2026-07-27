@@ -63,3 +63,7 @@ DATA_DIR = ROOT / "corpus"
 UPLOADS_DIR = DATA_DIR / "uploads"
 DATA_DIR.mkdir(exist_ok=True)
 UPLOADS_DIR.mkdir(exist_ok=True)
+
+# free tier controls
+
+ENRICH_CHUNKS = os.getenv("ENRICH_CHUNKS", "true").lower() == "true"
