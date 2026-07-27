@@ -66,4 +66,4 @@ corpus/                ingested documents
 
 ## Status
 
-Ingestion and query pipelines built and tested end to end, including multi-turn memory, tool-call streaming, and semantic caching. Not yet built: Tavily web search, Langfuse observability, RAGAS evaluation, test suite.
+Ingestion and query pipelines built and tested end to end, including multi-turn memory, tool-call streaming, Langfuse observability, and semantic caching. Not yet built: Tavily web search, RAGAS evaluation, test suite.
