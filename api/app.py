@@ -1,5 +1,4 @@
 import uvicorn
-from win32comext.shell.demos.servers.folder_view import debug
 
 from api.logging_config import *
 

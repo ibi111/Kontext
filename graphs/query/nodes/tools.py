@@ -1,5 +1,6 @@
 from langchain_core.tools import tool
 from rag.retrieval.search import search_knowledge_base
+from kontext_mcp.client import get_mcp_tools
 
 
 @tool
@@ -23,4 +24,4 @@ def search_documents(query: str) -> str:
     return "\n\n---\n\n".join(formatted)
 
 
-AVAILABLE_TOOLS = [search_documents]
+AVAILABLE_TOOLS = [search_documents, *get_mcp_tools()]
